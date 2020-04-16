@@ -18,7 +18,7 @@ def add_data(apps, schema_editor):
             "gender": "M" if rand == 1 else "F"
         }
         h = human.objects.create(**data)
-        match.objects.create(human=h, **data)
+        match.objects.create(human_id=h.id, **data)
 
 
 class Migration(migrations.Migration):
@@ -27,6 +27,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('match', '0001_initial'),
+        ('human', '0001_initial'),
     ]
 
     operations = [

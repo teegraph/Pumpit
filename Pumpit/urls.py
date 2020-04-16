@@ -18,15 +18,13 @@ from django.urls import path
 from django.conf.urls import include, url
 from rest_framework.routers import DefaultRouter
 from human.views import HumanViewSet
-from match.views import MatchView
+from match.views import MatchViewSet
 
 router = DefaultRouter()
 router.register(r'api/human', HumanViewSet)
-router.register(r'api/match', MatchView, basename="Match")
+router.register(r'api/match', MatchViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    # path('api/match/', MatchView.as_view()),
-    # path('api/match/<int:pk>/', MatchView.as_view())
 ]
